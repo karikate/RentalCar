@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 import s from "./CatalogList.module.css";
-// import { useSelector } from "react-redux";
-// import { selectFilteredCars } from "../../redux/filters/selectors";
 
 const CatalogList = ({ cars }) => {
   return (

@@ -64,13 +64,6 @@
   border-radius: 12px;
 }
 
-/* .details {
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-} */
-
 .titleWrapper {
   display: flex;
   justify-content: space-between;
