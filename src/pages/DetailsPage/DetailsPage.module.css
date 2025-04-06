@@ -1,0 +1,80 @@
+.carDetailsWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding: 40px 80px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.carDetailsWrapper img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  max-height: 500px;
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: "Manrope", sans-serif;
+}
+
+.infoWrapper h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+.title {
+  display: flex;
+  gap: 8px;
+
+  align-items: baseline;
+}
+
+.title p {
+  color: #8d929a;
+}
+
+.subTitle {
+  display: flex;
+  gap: 8px;
+}
+
+.infoWrapper h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 16px;
+  margin-bottom: 4px;
+}
+
+.infoWrapper p {
+  font-size: 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+}
+
+.infoWrapper ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.infoWrapper li {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #333;
+}
+
+.price {
+  color: #3470ff;
+  font-weight: bold;
+}

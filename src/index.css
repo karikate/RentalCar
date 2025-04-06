@@ -4,16 +4,13 @@
   width: 100%;
 }
 
-.title {
-  text-align: center;
-  color: blue;
-}
-
 body {
-  font-family: Roboto, sans-serif;
+  font-family: "Manrope", sans-serif;
   line-height: 1.5;
   margin: 0;
   padding: 0;
+  overflow: auto;
+  color: #101828;
 }
 
 h1,
@@ -38,14 +35,6 @@ img {
   max-width: 100%;
 }
 
-:root {
-  --color-red: red;
-}
-.global {
-  text-decoration: underline;
-}
-
-img {
-  display: block;
-  max-width: 100%;
+a {
+  text-decoration: none;
 }

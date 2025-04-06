@@ -10,18 +10,23 @@ const CatalogList = ({ cars }) => {
             <img src={car.img} alt="poster" className={s.image} />
             <div className={s.titleWrapper}>
               <h2 className={s.title}>
-                {car.brand}
-                {car.model}
-                {car.year}
+                {car.brand} <span>{car.model}</span> {car.year}
               </h2>
               <p className={s.price}>{car.rentalPrice}$</p>
             </div>
-
-            <p>{car.address}</p>
-            <p>{car.rentalCompany}</p>
-            <p>{car.type}</p>
-            <p>{car.mileage}</p>
-
+            <div className={s.info}>
+              <div>
+                <p>{car.address.split(", ").slice(-2).join(" | ")}</p>
+                <p>{car.rentalCompany}</p>
+              </div>
+              <div>
+                <p>{car.type}</p>
+                <p>
+                  {car.mileage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+                  km
+                </p>
+              </div>
+            </div>
             <Link to={`/catalog/${car.id}`} className={s.btnReadMore}>
               Read More
             </Link>
