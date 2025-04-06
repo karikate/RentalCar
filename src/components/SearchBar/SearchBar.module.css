@@ -65,6 +65,7 @@
   width: 156px;
   height: 44px;
   align-self: flex-end;
+  margin: 0;
 }
 
 .btn:hover {

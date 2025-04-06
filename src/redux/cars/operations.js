@@ -7,10 +7,23 @@ const goitApi = axios.create({
 
 export const fetchCarsThunk = createAsyncThunk(
   `fetchAll`,
-  async (_, thunkApi) => {
+  async ({ page = 1, filters = {} }, thunkApi) => {
     try {
-      const { data } = await goitApi.get(`/cars`);
-      return data.cars;
+      const params = new URLSearchParams({
+        ...filters,
+        page,
+        limit: 12,
+      });
+
+      const response = await goitApi.get(`/cars?${params.toString()}`);
+      const { cars, totalCars, totalPages } = response.data;
+
+      return {
+        items: cars,
+        hasMore: page < totalPages,
+        page,
+        total: totalCars,
+      };
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }

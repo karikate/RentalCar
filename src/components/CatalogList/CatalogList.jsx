@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
 import s from "./CatalogList.module.css";
-import { useSelector } from "react-redux";
-import { selectFilteredCars } from "../../redux/filters/selectors";
+// import { useSelector } from "react-redux";
+// import { selectFilteredCars } from "../../redux/filters/selectors";
 
-const CatalogList = () => {
-  const cars = useSelector(selectFilteredCars);
-
+const CatalogList = ({ cars }) => {
   return (
     <div className={s.wrapper}>
       <ul className={s.wrapperList}>

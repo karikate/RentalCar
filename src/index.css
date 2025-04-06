@@ -38,3 +38,27 @@ img {
 a {
   text-decoration: none;
 }
+
+button {
+  padding: 12px 28px;
+  background-color: transparent;
+  color: black;
+  border: 1px solid #3470ff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  z-index: 1;
+  transition: background 0.3s ease;
+  width: 156px;
+  height: 44px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+}
+
+button:hover {
+  border: 1px solid #0b44cd;
+}
