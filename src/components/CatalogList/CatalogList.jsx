@@ -1,13 +1,28 @@
 import { Link } from "react-router-dom";
 import s from "./CatalogList.module.css";
+import { BsHeart, BsHeartFill } from "react-icons/bs";
+import { useFavorites } from "../../hooks/useFavorites";
 
 const CatalogList = ({ cars }) => {
+  const { isFavorite, toggle } = useFavorites();
+
   return (
     <div className={s.wrapper}>
       <ul className={s.wrapperList}>
         {cars.map((car) => (
           <li key={car.id} className={s.carCard}>
-            <img src={car.img} alt="poster" className={s.image} />
+            <div className={s.imgWrapper}>
+              <img src={car.img} alt="poster" className={s.image} />
+              {isFavorite(car.id) ? (
+                <BsHeartFill
+                  className={`${s.icon} ${s.active}`}
+                  onClick={() => toggle(car.id)}
+                />
+              ) : (
+                <BsHeart className={s.icon} onClick={() => toggle(car.id)} />
+              )}
+            </div>
+
             <div className={s.titleWrapper}>
               <h2 className={s.title}>
                 {car.brand} <span>{car.model}</span> {car.year}

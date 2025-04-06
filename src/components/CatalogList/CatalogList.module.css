@@ -105,3 +105,25 @@
 .btnReadMore:hover {
   background-color: #1565c0;
 }
+
+.imgWrapper {
+  position: relative;
+}
+
+.imgWrapper {
+  position: relative;
+}
+.icon {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: #3470ff;
+}
+
+.active {
+  color: #3470ff;
+}
