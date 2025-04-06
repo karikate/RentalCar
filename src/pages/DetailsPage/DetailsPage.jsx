@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { fetchCarById } from "../../services/api";
 import s from "./DetailsPage.module.css";
 import {
   BsGeoAlt,
@@ -11,6 +10,9 @@ import {
   BsGear,
 } from "react-icons/bs";
 import { Field, Form, Formik } from "formik";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCurrentCar } from "../../redux/cars/selectors";
+import { fetchCarByIdThunk } from "../../redux/cars/operations";
 
 const DetailsPage = () => {
   const { id } = useParams();
@@ -24,15 +26,11 @@ const DetailsPage = () => {
     options.resetForm();
   };
 
-  const [car, setCar] = useState();
+  const dispatch = useDispatch();
+  const car = useSelector(selectCurrentCar);
   useEffect(() => {
-    if (!id) return;
-    const getSearchCarById = async () => {
-      const data = await fetchCarById(id);
-      setCar(data);
-    };
-    getSearchCarById();
-  }, [id]);
+    dispatch(fetchCarByIdThunk(id));
+  }, [dispatch, id]);
 
   if (!car) {
     return <h2>Loading...</h2>;

@@ -1,19 +1,20 @@
-import { useEffect, useState } from "react";
-import { fetchCars } from "../../services/api";
+import { useEffect } from "react";
 import CatalogList from "../../components/CatalogList/CatalogList";
+import { fetchCarsThunk } from "../../redux/cars/operations";
+
+import { useDispatch } from "react-redux";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 const CatalogPage = () => {
-  const [cars, setCars] = useState([]);
+  const dispatch = useDispatch();
   useEffect(() => {
-    const getSearchCars = async () => {
-      const data = await fetchCars();
-      setCars(data);
-    };
-    getSearchCars();
-  }, []);
+    dispatch(fetchCarsThunk());
+  }, [dispatch]);
+
   return (
     <div>
-      <CatalogList cars={cars} />
+      <SearchBar />
+      <CatalogList />
     </div>
   );
 };
