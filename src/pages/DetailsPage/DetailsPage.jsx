@@ -22,7 +22,6 @@ const DetailsPage = () => {
     email: "",
   };
   const handleSubmit = (values, options) => {
-    console.log(values);
     options.resetForm();
   };
 
