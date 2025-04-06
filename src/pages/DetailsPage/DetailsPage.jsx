@@ -10,9 +10,19 @@ import {
   BsFuelPump,
   BsGear,
 } from "react-icons/bs";
+import { Field, Form, Formik } from "formik";
 
 const DetailsPage = () => {
   const { id } = useParams();
+
+  const initialValues = {
+    username: "",
+    email: "",
+  };
+  const handleSubmit = (values, options) => {
+    console.log(values);
+    options.resetForm();
+  };
 
   const [car, setCar] = useState();
   useEffect(() => {
@@ -29,8 +39,17 @@ const DetailsPage = () => {
   }
   return (
     <div className={s.carDetailsWrapper}>
-      <div>
+      <div className={s.imgBookWrapper}>
         <img src={car.img} alt="poster" />
+        <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+          <Form className={s.form}>
+            <Field type="text" name="username" placeholder="Name*" />
+            <Field type="email" name="email" placeholder="Email*" />
+            <Field type="text" name="date" placeholder="Booking date" />
+            <Field as="textarea" name="comment" placeholder="Comment" />
+            <button type="submit">Send</button>
+          </Form>
+        </Formik>
       </div>
 
       <div className={s.infoWrapper}>
