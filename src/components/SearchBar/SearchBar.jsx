@@ -10,7 +10,7 @@ import { fetchCarsThunk } from "../../redux/cars/operations";
 const SearchBar = () => {
   const dispatch = useDispatch();
   const filters = useSelector(selectFilters);
-
+  const search = useSelector((state) => state.filters.search);
   const cars = useSelector(selectAllCars);
 
   const brands = [...new Set(cars.map((car) => car.brand))].sort();
@@ -28,7 +28,7 @@ const SearchBar = () => {
   const handleSubmit = () => {
     dispatch(clearCars());
     dispatch(searchFilters());
-    dispatch(fetchCarsThunk());
+    dispatch(fetchCarsThunk({ page: 1, filters: search }));
   };
 
   return (
